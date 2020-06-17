@@ -7,6 +7,7 @@ module.exports = {
   create,
   delete: deleteTaco,
   show,
+  update,
 };
 
 function index(req, res) {
@@ -26,6 +27,11 @@ function deleteTaco(req, res) {
 function show(req, res) {
   res.render('show', {taco: Taco.getOne(req.params.id), idx: req.params.id})
   
+}
+
+function update(req, res) {
+  Taco.update(req.params.id, req.body);
+  res.redirect('/');
 }
 
 // (...and here!)
