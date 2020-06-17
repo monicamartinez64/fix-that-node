@@ -7,5 +7,6 @@ const tacosCtrl = require("../controllers/tacos");
 router.get("/", tacosCtrl.index);
 // Add the routes here!
 router.post("/tacos", tacosCtrl.create);
+router.delete('/tacos/:idx', tacosCtrl.delete);
 
 module.exports = router;
