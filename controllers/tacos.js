@@ -6,6 +6,7 @@ module.exports = {
   // Add the rest of the functions here!
   create,
   delete: deleteTaco,
+  show,
 };
 
 function index(req, res) {
@@ -21,4 +22,12 @@ function deleteTaco(req, res) {
   Taco.deleteOne(req.params.idx);
   res.redirect('/');
 }
+
+function show(req, res) {
+  res.render('show', {taco: Taco.getOne(req.params.id), idx: req.params.id})
+  
+}
+
 // (...and here!)
+
+
